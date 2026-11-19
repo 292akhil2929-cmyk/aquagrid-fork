@@ -35,8 +35,8 @@ function colour(status?: string) {
   if (status === "critical" || status === "alarm") return "#d33a3f";
   if (status === "warning" || status === "watch" || status === "fault" || status === "flatline") return "#e8892b";
   if (status === "quarantined" || status === "isolated") return "#7d8699";
-  if (status === "closed") return "#fff44f";
-  return "#62a7ea";
+  if (status === "closed") return "#f2ea1e";
+  return "#6fa8e8";
 }
 
 export function NetworkTwin() {
@@ -90,7 +90,7 @@ export function NetworkTwin() {
           </label>
           {[["Flow", flow, setFlow], ["Labels", labels, setLabels], ["Trace upstream", trace, setTrace]].map(([l, v, set]) => (
             <button key={l as string} type="button" aria-pressed={v as boolean} onClick={() => (set as (f: (x: boolean) => boolean) => void)((x) => !x)}
-              className={`rounded-full px-3 py-1.5 text-[13px] font-[620] ${v ? "bg-[var(--color-yellow)] text-black" : "bg-white/10 text-white"}`}>
+              className={`rounded-full px-3 py-1.5 text-[13px] font-[620] ${v ? "bg-[var(--color-blue)] text-[var(--color-navy)]" : "bg-white/10 text-white"}`}>
               {l as string}
             </button>
           ))}
@@ -115,7 +115,7 @@ export function NetworkTwin() {
           onPointerUp={() => { drag.current = null; }}
         >
           <defs>
-            <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#24397a" /></pattern>
+            <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#293f71" /></pattern>
             <style>{`@keyframes dash{to{stroke-dashoffset:-40}} .flow{stroke-dasharray:6 14;animation:dash linear infinite} @media (prefers-reduced-motion: reduce){.flow{animation:none}}`}</style>
           </defs>
           <rect width="980" height="680" fill="url(#dots)" />
@@ -131,7 +131,7 @@ export function NetworkTwin() {
               return (
                 <g key={`${e.from}${e.to}`} opacity={dim ? 0.12 : 1}>
                   <path d={d} fill="none" stroke={bad ? "#d33a3f" : "#3c5aa8"} strokeWidth="3" />
-                  {flow && m3h > 0 && <path className="flow" d={d} fill="none" stroke={bad ? "#ff9b9b" : "#62a7ea"} strokeWidth="3" style={{ animationDuration: `${Math.max(0.6, 900 / m3h).toFixed(2)}s` }} />}
+                  {flow && m3h > 0 && <path className="flow" d={d} fill="none" stroke={bad ? "#ff9b9b" : "#6fa8e8"} strokeWidth="3" style={{ animationDuration: `${Math.max(0.6, 900 / m3h).toFixed(2)}s` }} />}
                 </g>
               );
             })}
@@ -150,12 +150,12 @@ export function NetworkTwin() {
                   transform={`translate(${p[0]} ${p[1]})`} opacity={dim ? 0.18 : 1} className="cursor-pointer"
                   onClick={() => setSelected(a.id)}
                   onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setSelected(a.id); } }}>
-                  {selected === a.id && <circle r={isSensor ? 13 : 30} fill="none" stroke="#fff44f" strokeWidth="3" />}
+                  {selected === a.id && <circle r={isSensor ? 13 : 30} fill="none" stroke="#f2ea1e" strokeWidth="3" />}
                   {isSensor ? (
-                    <circle r="7" fill={colour(st)} stroke="#0c1b48" strokeWidth="2" />
+                    <circle r="7" fill={colour(st)} stroke="#111b3a" strokeWidth="2" />
                   ) : (
                     <>
-                      <circle r="23" fill="#0c1b48" stroke={colour(st)} strokeWidth="2" />
+                      <circle r="23" fill="#111b3a" stroke={colour(st)} strokeWidth="2" />
                       <path d={glyph(a.type)} fill="none" stroke={colour(st)} strokeWidth="1.6" strokeLinejoin="round" />
                     </>
                   )}

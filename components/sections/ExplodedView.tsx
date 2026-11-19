@@ -141,7 +141,7 @@ export function ExplodedView() {
         </AnimatePresence>
 
         {/* Toolbar */}
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 bg-[rgba(12,27,72,0.82)] px-4 py-3 backdrop-blur sm:px-8">
+        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 bg-[rgba(17,27,58,0.82)] px-4 py-3 backdrop-blur sm:px-8">
           <div className="flex flex-wrap items-center gap-2">
             <button type="button" className="btn btn-primary btn-sm" onClick={toggleExplode} disabled={!use3d}>
               {exploded ? "Collapse layers" : "Separate layers"}
@@ -153,7 +153,7 @@ export function ExplodedView() {
                   type="button"
                   onClick={() => selectLayer(l.id)}
                   aria-pressed={selected === `layer:${l.id}`}
-                  className={`rounded-full px-3 py-1.5 text-[13px] font-[600] transition-colors ${selected === `layer:${l.id}` ? "bg-[var(--color-yellow)] text-black" : "text-white/85 hover:bg-white/10"}`}
+                  className={`rounded-full px-3 py-1.5 text-[13px] font-[600] transition-colors ${selected === `layer:${l.id}` ? "bg-[var(--color-blue)] text-[var(--color-navy)]" : "text-white/85 hover:bg-white/10"}`}
                 >
                   {l.short}
                 </button>

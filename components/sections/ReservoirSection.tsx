@@ -28,12 +28,12 @@ function ScenarioTank({ x, plan, hour, reduced }: { x: number; plan: PlanResult;
         <circleGeometry args={[R + 1.2, 64]} />
       </mesh>
       <Html position={[-R - 0.6, H * 0.85, 0]} center zIndexRange={[20, 5]} style={{ pointerEvents: "none" }}>
-        <div className="-translate-x-1/2 whitespace-nowrap rounded bg-[rgba(12,27,72,0.85)] px-2 py-1 text-[12px] text-white">
+        <div className="-translate-x-1/2 whitespace-nowrap rounded bg-[rgba(17,27,58,0.85)] px-2 py-1 text-[12px] text-white">
           In <b>{row.production_m3h}</b> m³/h
         </div>
       </Html>
       <Html position={[R + 0.6, 1.4, 0]} center zIndexRange={[20, 5]} style={{ pointerEvents: "none" }}>
-        <div className="translate-x-1/2 whitespace-nowrap rounded bg-[rgba(12,27,72,0.85)] px-2 py-1 text-[12px] leading-snug text-white">
+        <div className="translate-x-1/2 whitespace-nowrap rounded bg-[rgba(17,27,58,0.85)] px-2 py-1 text-[12px] leading-snug text-white">
           Out <b>{row.demand_m3h}</b> m³/h{row.loss_m3h > 0 && <><br />Leak <b>{row.loss_m3h}</b> m³/h</>}
         </div>
       </Html>
@@ -111,12 +111,12 @@ export function ReservoirSection() {
                   );
                 })}
               </div>
-              <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-[rgba(12,27,72,0.85)] px-4 py-3 text-white">
+              <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 bg-[rgba(17,27,58,0.85)] px-4 py-3 text-white">
                 <button type="button" className="btn btn-primary btn-sm" onClick={() => { if (hour >= 10) setHour(0); setPlaying((p) => !p); }} disabled={reduced && false}>
                   {playing ? "Pause" : hour >= 10 ? "Replay" : "Play the evening"}
                 </button>
                 <label htmlFor="hour" className="sr-only">Hour</label>
-                <input id="hour" type="range" min={0} max={10} value={hour} onChange={(e) => { setPlaying(false); setHour(Number(e.target.value)); }} className="w-full accent-[#fff44f]" />
+                <input id="hour" type="range" min={0} max={10} value={hour} onChange={(e) => { setPlaying(false); setHour(Number(e.target.value)); }} className="w-full accent-[#6fa8e8]" />
                 <span className="type-figure w-14 text-right text-[1.1rem]">{prop.hours[hour]}</span>
               </div>
             </div>

@@ -32,7 +32,7 @@ export function TwinCanvas({ twin, children, active, enableZoom = false, minDist
     >
       <TwinContext.Provider value={twin}>
         <fog attach="fog" args={[COLORS.navy, 140, 320]} />
-        <hemisphereLight args={["#dfeaff", "#0c1b48", 1.1]} />
+        <hemisphereLight args={["#dfeaff", "#111b3a", 1.1]} />
         <directionalLight position={[40, 70, 30]} intensity={1.8} color="#ffffff" />
         <directionalLight position={[-50, 20, -40]} intensity={0.55} color="#9cc4ef" />
         <OrbitControls

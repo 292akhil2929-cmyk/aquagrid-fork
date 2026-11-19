@@ -30,12 +30,12 @@ export function useTwin() {
 }
 
 export const COLORS = {
-  navy: "#0c1b48",
-  navy2: "#16285f",
-  navy3: "#24397a",
-  blue: "#62a7ea",
-  blueDeep: "#2f7fd0",
-  yellow: "#fff44f",
+  navy: "#111b3a",
+  navy2: "#1b2c54",
+  navy3: "#293f71",
+  blue: "#6fa8e8",
+  blueDeep: "#2e72b8",
+  yellow: "#f2ea1e",
   white: "#f4f7fb",
   concrete: "#c9d3e1",
   steel: "#9fb0c8",
@@ -43,7 +43,7 @@ export const COLORS = {
   amber: "#e8892b",
   red: "#d33a3f",
   grey: "#7f8aa3",
-  sea: "#123b80",
+  sea: "#315b8b",
 };
 
 export function statusColor(status: Status | undefined): string {

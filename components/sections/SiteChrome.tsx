@@ -8,9 +8,9 @@ export function Logo() {
   return (
     <span className="flex items-center gap-2.5">
       <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="7" fill="#0c1b48" />
-        <path d="M16 5c3.6 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.4-6.4 6-11Z" fill="#62a7ea" />
-        <path d="M7 24h18M9 27h14" stroke="#fff44f" strokeWidth="1.8" strokeLinecap="round" />
+        <rect width="32" height="32" rx="7" fill="#111b3a" />
+        <path d="M16 5c3.6 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.4-6.4 6-11Z" fill="#6fa8e8" />
+        <path d="M7 24h18M9 27h14" stroke="#f2ea1e" strokeWidth="1.8" strokeLinecap="round" />
       </svg>
       <span className="text-[1.15rem] font-[760] tracking-[-0.01em]" style={{ fontStretch: "118%" }}>AquaGrid</span>
     </span>

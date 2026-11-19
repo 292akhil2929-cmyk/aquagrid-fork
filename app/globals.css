@@ -1,27 +1,25 @@
 @import "tailwindcss";
 
 /*
-  AquaGrid palette
-  ink      #000000  all text on light surfaces
-  navy     #0C1B48  3D viewports, structural blocks
-  blue     #62A7EA  water, flow, interactive accent
-  yellow   #FFF44F  survey marker: the one thing to look at (always behind black text)
-  paper    #FFFFFF / mist #EEF4FB surfaces
-  status   amber #E8892B (warning), red #D33A3F (violated / critical) — status only
+  AquaGrid palette: Gulf ice, deep-water navy, warm paper, one lemon signal.
+  Water and selected controls use glacier blue; lemon is reserved for primary
+  actions, important markers, and closed-valve state. Incident colors stay semantic.
 */
 @theme {
-  --color-ink: #000000;
-  --color-navy: #0c1b48;
-  --color-navy-2: #16285f;
-  --color-navy-3: #24397a;
-  --color-blue: #62a7ea;
-  --color-blue-deep: #2f7fd0;
+  --color-ink: #20283a;
+  --color-navy: #111b3a;
+  --color-navy-2: #1b2c54;
+  --color-navy-3: #293f71;
+  --color-blue: #6fa8e8;
+  --color-blue-deep: #2e72b8;
   --color-blue-pale: #dcebfa;
-  --color-yellow: #fff44f;
-  --color-paper: #ffffff;
-  --color-mist: #eef4fb;
-  --color-line: #c9d6e6;
-  --color-muted: #3d4a63;
+  --color-yellow: #f2ea1e;
+  --color-paper: #f5f3ed;
+  --color-mist: #eaf1f7;
+  --color-line: #cbd5e1;
+  --color-muted: #586275;
+  --color-black: #20283a;
+  --color-white: #f5f3ed;
   --color-amber: #e8892b;
   --color-amber-pale: #fdebd6;
   --color-red: #d33a3f;
@@ -96,7 +94,7 @@ body {
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   padding: 0 0.18em;
-  color: #000;
+  color: #20283a;
 }
 
 }
@@ -118,22 +116,22 @@ body {
   cursor: pointer; white-space: nowrap;
 }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
-.btn-primary { background: var(--color-yellow); color: #000; border-color: #000; }
-.btn-primary:not(:disabled):hover { background: #000; color: var(--color-yellow); }
-.btn-blue { background: var(--color-blue); color: #000; border-color: var(--color-blue); }
-.btn-blue:not(:disabled):hover { background: #000; color: var(--color-blue); border-color: #000; }
+.btn-primary { background: var(--color-yellow); color: #20283a; border-color: #20283a; }
+.btn-primary:not(:disabled):hover { background: var(--color-navy); color: var(--color-yellow); border-color: var(--color-navy); }
+.btn-blue { background: var(--color-blue); color: #20283a; border-color: var(--color-blue); }
+.btn-blue:not(:disabled):hover { background: var(--color-navy); color: var(--color-blue); border-color: var(--color-navy); }
 .btn-ghost { background: transparent; }
-.btn-ghost:not(:disabled):hover { background: rgba(98, 167, 234, 0.16); }
+.btn-ghost:not(:disabled):hover { background: rgba(111, 168, 232, 0.16); }
 .btn-sm { min-height: 2.25rem; padding: 0 0.85rem; font-size: 0.8125rem; }
 
 .tool {
   display: inline-grid; place-items: center;
   width: 2.5rem; height: 2.5rem; border-radius: 999px;
-  background: rgba(12, 27, 72, 0.72); color: #fff; border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(17, 27, 58, 0.72); color: #fff; border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(8px); cursor: pointer; transition: background-color 160ms ease;
 }
 .tool:hover { background: var(--color-navy-3); }
-.tool[aria-pressed="true"] { background: var(--color-yellow); color: #000; border-color: #000; }
+.tool[aria-pressed="true"] { background: var(--color-blue); color: var(--color-navy); border-color: var(--color-blue); }
 
 .scroll-thin { scrollbar-width: thin; scrollbar-color: var(--color-line) transparent; }
 

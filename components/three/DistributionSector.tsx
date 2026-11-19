@@ -87,7 +87,7 @@ export function DistributionSector({ id }: { id: string }) {
       </Asset>
       {showLabels && (
         <Html position={[centre[0], 0.2, centre[2]]} center zIndexRange={[5, 0]} style={{ pointerEvents: "none" }}>
-          <div className="whitespace-nowrap text-[12px] font-[640] tracking-[0.01em] text-white/85 [text-shadow:0_1px_6px_rgba(12,27,72,0.9)]">
+          <div className="whitespace-nowrap text-[12px] font-[640] tracking-[0.01em] text-white/85 [text-shadow:0_1px_6px_rgba(17,27,58,0.9)]">
             {id.replace("SEC-0", "Sector ")}
           </div>
         </Html>

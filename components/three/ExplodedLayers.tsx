@@ -67,7 +67,7 @@ export function LayerPlate({ layer }: { layer: number }) {
             aria-hidden={!visible}
             onClick={() => selectLayer(layer)}
             className={`-translate-x-full -translate-y-1/2 whitespace-nowrap rounded-full border px-3 py-1.5 text-left text-[13px] font-[640] transition-colors ${
-              active ? "border-black bg-[var(--color-yellow)] text-black" : "border-white/30 bg-[rgba(12,27,72,0.82)] text-white hover:bg-[var(--color-navy-3)]"
+              active ? "border-[var(--color-blue)] bg-[var(--color-blue)] text-[var(--color-navy)]" : "border-white/30 bg-[rgba(17,27,58,0.82)] text-white hover:bg-[var(--color-navy-3)]"
             }`}
           >
             <span className="mr-2 opacity-70">{layer}</span>{meta.name}

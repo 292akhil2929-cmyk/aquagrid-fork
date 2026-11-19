@@ -36,7 +36,7 @@ function Plans() {
         <div role="radiogroup" aria-label="Plan" className="flex flex-wrap gap-1.5">
           {ev.results.map((r, i) => (
             <button key={r.plan_id} type="button" role="radio" aria-checked={pick === i} onClick={() => setPick(i)}
-              className={`rounded-full border px-3 py-1.5 text-[13.5px] font-[620] ${pick === i ? "border-black bg-[var(--color-yellow)]" : "border-[var(--color-line)]"}`}>
+              className={`rounded-full border px-3 py-1.5 text-[13.5px] font-[620] ${pick === i ? "border-[var(--color-blue)] bg-[var(--color-blue)] text-[var(--color-navy)]" : "border-[var(--color-line)]"}`}>
               {r.plan_name}
             </button>
           ))}
@@ -81,7 +81,7 @@ export default function ControlRoom() {
             <div role="radiogroup" aria-label="Scenario time" className="flex flex-wrap gap-1 rounded-full bg-[var(--color-mist)] p-1">
               {(state?.scenes ?? []).map((s) => (
                 <button key={s.id} type="button" role="radio" aria-checked={scene === s.id} title={s.title} onClick={() => setScene(s.id)}
-                  className={`rounded-full px-3 py-1.5 text-[13px] font-[640] ${scene === s.id ? "bg-black text-[var(--color-yellow)]" : "hover:bg-white"}`}>
+                  className={`rounded-full px-3 py-1.5 text-[13px] font-[640] ${scene === s.id ? "bg-[var(--color-blue)] text-[var(--color-navy)]" : "hover:bg-white"}`}>
                   {s.clock}
                 </button>
               ))}
@@ -107,7 +107,7 @@ export default function ControlRoom() {
             <ul className="mt-3 divide-y divide-[var(--color-line)] border-y border-[var(--color-line)]">
               {state?.alerts.map((a) => (
                 <li key={a.id} className="flex gap-3 py-3">
-                  <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: a.severity === "critical" ? "#d33a3f" : a.severity === "warning" ? "#e8892b" : "#2f7fd0" }} aria-hidden="true" />
+                  <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: a.severity === "critical" ? "#d33a3f" : a.severity === "warning" ? "#e8892b" : "#2e72b8" }} aria-hidden="true" />
                   <div><p className="font-[660]">{a.title} <span className="font-[400] text-[var(--color-muted)]">{a.raised_at}</span></p><p className="text-[14.5px]">{a.detail}</p></div>
                 </li>
               ))}

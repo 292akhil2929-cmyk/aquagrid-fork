@@ -7,7 +7,7 @@ export function StatusChip({ status }: { status: Status | string | undefined }) 
   const dot = status === "critical" || status === "alarm" ? "#d33a3f"
     : status === "warning" || status === "watch" || status === "fault" || status === "flatline" ? "#e8892b"
     : status === "quarantined" || status === "isolated" ? "#7d8699"
-    : status === "closed" ? "#000" : "#2f7fd0";
+    : status === "closed" ? "#20283a" : "#2e72b8";
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[12.5px] font-[620]" style={{ background: tone.bg, color: tone.fg }}>
       <span className="h-2 w-2 rounded-full" style={{ background: dot }} aria-hidden="true" />
@@ -83,7 +83,7 @@ export function CheckList({ checks }: { checks: Check[] }) {
 export function Authority({ text }: { text: string }) {
   return (
     <p className="flex items-center gap-2 text-[12.5px] text-[var(--color-muted)]">
-      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4V4Zm0 6h16v4H4v-4Zm0 6h16v4H4v-4Z" fill="#2f7fd0" /></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4V4Zm0 6h16v4H4v-4Zm0 6h16v4H4v-4Z" fill="#2e72b8" /></svg>
       {text}
     </p>
   );

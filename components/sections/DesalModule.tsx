@@ -43,7 +43,7 @@ function Stage({ index, id, name, powerKw, children }: { index: number; id: stri
     <group ref={ref}>
       <Asset id={id} ring={3.4} label={false}>{children}</Asset>
       <Html position={[0, index % 2 === 0 ? 4.2 : 6.4, 0]} center zIndexRange={[15, 5]} style={{ pointerEvents: "none" }}>
-        <div className={`whitespace-nowrap rounded-md px-2 py-1 text-center text-[12.5px] leading-tight ${selected === id ? "bg-[var(--color-yellow)] text-black" : "bg-[rgba(12,27,72,0.85)] text-white"}`}>
+        <div className={`whitespace-nowrap rounded-md px-2 py-1 text-center text-[12.5px] leading-tight ${selected === id ? "bg-[var(--color-blue)] text-[var(--color-navy)]" : "bg-[rgba(17,27,58,0.85)] text-white"}`}>
           <div className="font-[660]">{index + 1}. {name}</div>
           {powerKw !== undefined && <div className="opacity-80">{powerKw > 0 ? `${powerKw.toLocaleString()} kW` : "no direct load"}</div>}
         </div>
@@ -57,7 +57,7 @@ function ProcessLine({ speed }: { speed: number }) {
   const { geo, length } = useMemo(() => pathGeometry([[-19, 0.3, 0], [19, 0.3, 0]], 0.28), []);
   const mat = useMemo(() => makeFlowMaterial(COLORS.steel), []);
   const brine = useMemo(() => pathGeometry([[3.3, 0.3, 2.4], [10, 0.3, 2.4], [10, 0.3, 4.2], [20, 0.3, 4.2]], 0.2), []);
-  const brineMat = useMemo(() => { const m = makeFlowMaterial("#8a96ad"); (m.uniforms.uFlow.value as THREE.Color).set("#c9d6e6"); return m; }, []);
+  const brineMat = useMemo(() => { const m = makeFlowMaterial("#8a96ad"); (m.uniforms.uFlow.value as THREE.Color).set("#cbd5e1"); return m; }, []);
   const g = useRef<THREE.Group>(null);
   useFrame((_, dt) => {
     for (const [m, len] of [[mat, length], [brineMat, brine.length]] as const) {
@@ -141,12 +141,12 @@ export function DesalModule() {
             ) : webgl === false ? (
               <p className="p-6 text-white">3D isn’t available in this browser. The process diagram below shows the same stages.</p>
             ) : null}
-            <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-center gap-2 bg-[rgba(12,27,72,0.82)] px-4 py-3">
+            <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-center gap-2 bg-[rgba(17,27,58,0.82)] px-4 py-3">
               <button type="button" className="btn btn-primary btn-sm" onClick={() => setExploded((v) => !v)} disabled={!webgl}>{exploded ? "Assemble plant" : "Explode plant"}</button>
               <div role="group" aria-label="Plant stages" className="flex flex-wrap gap-1">
                 {(model?.stages ?? []).map((s, i) => (
                   <button key={s.id} type="button" aria-pressed={selected === s.id} onClick={() => setSelected(s.id)}
-                    className={`rounded-full px-2.5 py-1 text-[12.5px] font-[600] ${selected === s.id ? "bg-[var(--color-yellow)] text-black" : "text-white/85 hover:bg-white/10"}`}>
+                    className={`rounded-full px-2.5 py-1 text-[12.5px] font-[600] ${selected === s.id ? "bg-[var(--color-blue)] text-[var(--color-navy)]" : "text-white/85 hover:bg-white/10"}`}>
                     {i + 1}. {s.name}
                   </button>
                 ))}
@@ -174,7 +174,7 @@ export function DesalModule() {
                 Production setting <span className="type-figure text-[1.25rem]">{production} m³/h</span>
               </label>
               <input id="prod" type="range" min={model?.limits.min_m3h ?? 100} max={model?.limits.max_m3h ?? 800} step={25} value={production}
-                onChange={(e) => setProduction(Number(e.target.value))} className="mt-2 w-full accent-[#2f7fd0]" />
+                onChange={(e) => setProduction(Number(e.target.value))} className="mt-2 w-full accent-[#2e72b8]" />
               <div className="flex justify-between text-[12px] text-[var(--color-muted)]"><span>Minimum turndown</span><span>Nominal 600</span><span>Maximum</span></div>
             </div>
             {op && (
@@ -215,15 +215,15 @@ function ProcessDiagram({ feed, product, brine, selected, onSelect }: { feed: nu
   const box = (id: string, x: number, y: number, w: number, label: string, sub?: string) => (
     <g role="button" tabIndex={0} aria-label={label} aria-pressed={selected === id} onClick={() => onSelect(id)}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onSelect(id); } }} className="cursor-pointer">
-      <rect x={x} y={y} width={w} height="46" rx="6" fill={selected === id ? "#fff44f" : "#fff"} stroke="#000" strokeWidth="1.4" />
+      <rect x={x} y={y} width={w} height="46" rx="6" fill={selected === id ? "#f2ea1e" : "#fff"} stroke="#20283a" strokeWidth="1.4" />
       <text x={x + w / 2} y={y + (sub ? 20 : 28)} textAnchor="middle" fontSize="13" fontWeight="650">{label}</text>
-      {sub && <text x={x + w / 2} y={y + 36} textAnchor="middle" fontSize="11" fill="#3d4a63">{sub}</text>}
+      {sub && <text x={x + w / 2} y={y + 36} textAnchor="middle" fontSize="11" fill="#586275">{sub}</text>}
     </g>
   );
-  const arrow = (d: string, color = "#2f7fd0", label?: string, lx = 0, ly = 0) => (
+  const arrow = (d: string, color = "#2e72b8", label?: string, lx = 0, ly = 0) => (
     <g>
       <path d={d} fill="none" stroke={color} strokeWidth="2.2" markerEnd={`url(#ah-${color.slice(1)})`} />
-      {label && <text x={lx} y={ly} fontSize="11.5" fill="#000">{label}</text>}
+      {label && <text x={lx} y={ly} fontSize="11.5" fill="#20283a">{label}</text>}
     </g>
   );
   return (
@@ -241,12 +241,12 @@ function ProcessDiagram({ feed, product, brine, selected, onSelect }: { feed: nu
         {box("erd", 340, 150, 120, "Energy recovery", "+ booster pump")}
         {box("membranes", 510, 80, 110, "Membranes", "RO vessels")}
         {box("output", 510, 230, 200, "Post-treatment", "remineralise, disinfect")}
-        {arrow("M120 63H158", "#2f7fd0", `${feed.toLocaleString()} m³/h`, 116, 32)}
+        {arrow("M120 63H158", "#2e72b8", `${feed.toLocaleString()} m³/h`, 116, 32)}
         {arrow("M290 55H315V33H338")}
-        {arrow("M290 71H315V173H338", "#2f7fd0", "brine-side share", 222, 125)}
+        {arrow("M290 71H315V173H338", "#2e72b8", "brine-side share", 222, 125)}
         {arrow("M460 33H485V95H508")}
         {arrow("M460 173H485V111H508")}
-        {arrow("M620 103H660V228", "#2f7fd0", `${product.toLocaleString()} m³/h product`, 600, 70)}
+        {arrow("M620 103H660V228", "#2e72b8", `${product.toLocaleString()} m³/h product`, 600, 70)}
         {arrow("M565 126V186H462", "#7d8699", "concentrate, high pressure", 474, 204)}
         {arrow("M380 196V270H30", "#7d8699", `${brine.toLocaleString()} m³/h brine to outfall`, 40, 290)}
       </svg>

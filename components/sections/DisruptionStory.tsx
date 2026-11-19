@@ -69,14 +69,14 @@ export function DisruptionStory() {
                 lockedValve={scene === 7 ? lockedValve : null} projectedStoragePct={scene === 6 ? projection : null}
               />
             )}
-            <nav aria-label="Scenario steps" className="absolute inset-x-0 top-0 flex gap-1 overflow-x-auto bg-gradient-to-b from-[rgba(12,27,72,0.92)] to-transparent p-3 text-white">
+            <nav aria-label="Scenario steps" className="absolute inset-x-0 top-0 flex gap-1 overflow-x-auto bg-gradient-to-b from-[rgba(17,27,58,0.92)] to-transparent p-3 text-white">
               {SCENES.map((s) => (
                 <button
                   key={s.id}
                   type="button"
                   onClick={() => goTo(s.id)}
                   aria-current={scene === s.id ? "step" : undefined}
-                  className={`shrink-0 rounded-full px-3 py-1.5 text-[13px] font-[640] transition-colors ${scene === s.id ? "bg-[var(--color-yellow)] text-black" : "text-white/80 hover:bg-white/10"}`}
+                  className={`shrink-0 rounded-full px-3 py-1.5 text-[13px] font-[640] transition-colors ${scene === s.id ? "bg-[var(--color-blue)] text-[var(--color-navy)]" : "text-white/80 hover:bg-white/10"}`}
                 >
                   {s.clock}
                 </button>
@@ -85,8 +85,8 @@ export function DisruptionStory() {
             {live && live.alerts.length > 0 && (
               <ul className="absolute bottom-3 left-3 hidden max-w-[60%] space-y-1.5 md:block" aria-label="Active alerts">
                 {live.alerts.map((a) => (
-                  <li key={a.id} className="flex items-center gap-2 rounded-md bg-[rgba(12,27,72,0.86)] px-2.5 py-1.5 text-[12.5px] text-white">
-                    <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: a.severity === "critical" ? "#d33a3f" : a.severity === "warning" ? "#e8892b" : "#62a7ea" }} aria-hidden="true" />
+                  <li key={a.id} className="flex items-center gap-2 rounded-md bg-[rgba(17,27,58,0.86)] px-2.5 py-1.5 text-[12.5px] text-white">
+                    <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: a.severity === "critical" ? "#d33a3f" : a.severity === "warning" ? "#e8892b" : "#6fa8e8" }} aria-hidden="true" />
                     <span className="font-[600]">{a.title}</span>
                     <span className="opacity-60">{a.raised_at}</span>
                   </li>
