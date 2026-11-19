@@ -2,3 +2,9 @@
 .env
 .env.*
 .DS_Store
+node_modules/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+__pycache__/
+*.pyc

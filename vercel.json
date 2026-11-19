@@ -1,7 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": null,
-  "buildCommand": "",
-  "installCommand": "",
-  "outputDirectory": "dist"
+  "framework": "nextjs",
+  "functions": {
+    "api/index.py": { "includeFiles": "backend/aquagrid/**" }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index?route=:path*" }
+  ]
 }
