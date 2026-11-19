@@ -66,11 +66,11 @@ export function LayerPlate({ layer }: { layer: number }) {
             tabIndex={visible ? 0 : -1}
             aria-hidden={!visible}
             onClick={() => selectLayer(layer)}
-            className={`-translate-x-full -translate-y-1/2 whitespace-nowrap rounded-full border px-3 py-1.5 text-left text-[13px] font-[640] transition-colors ${
-              active ? "border-[var(--color-blue)] bg-[var(--color-blue)] text-[var(--color-navy)]" : "border-white/30 bg-[rgba(17,27,58,0.82)] text-white hover:bg-[var(--color-navy-3)]"
+            className={`-translate-y-1/2 whitespace-nowrap rounded-md border px-3 py-1.5 text-left text-[13px] font-[560] transition-colors ${
+              active ? "border-[var(--color-blue)] bg-[var(--color-blue)] text-[var(--color-navy)]" : "border-white/20 bg-[rgba(17,27,58,0.92)] text-white hover:bg-[var(--color-navy-3)]"
             }`}
           >
-            <span className="mr-2 opacity-70">{layer}</span>{meta.name}
+            <span className="mr-2 opacity-70">{layer}</span>{meta.short}
           </button>
         </Html>
       )}

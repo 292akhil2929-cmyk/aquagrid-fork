@@ -8,8 +8,8 @@ export function Logo() {
   return (
     <span className="flex items-center gap-2.5">
       <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="7" fill="#111b3a" />
-        <path d="M16 5c3.6 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.4-6.4 6-11Z" fill="#6fa8e8" />
+        <rect width="32" height="32" rx="7" fill="#6fa8e8" />
+        <path d="M16 5c3.6 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.4-6.4 6-11Z" fill="#111b3a" />
         <path d="M7 24h18M9 27h14" stroke="#f2ea1e" strokeWidth="1.8" strokeLinecap="round" />
       </svg>
       <span className="text-[1.15rem] font-[760] tracking-[-0.01em]" style={{ fontStretch: "118%" }}>AquaGrid</span>
@@ -28,13 +28,13 @@ export function SiteHeader() {
   const { state, offline } = useScenario();
   const path = usePathname();
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-black/10 bg-white/95 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-white/10 bg-[rgba(17,27,58,0.94)] text-white backdrop-blur">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:rounded focus:bg-[var(--color-yellow)] focus:px-3 focus:py-2">Skip to content</a>
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-4 px-5 sm:px-10">
         <Link href="/" aria-label="AquaGrid home"><Logo /></Link>
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="rounded-full px-3 py-2 text-[14.5px] font-[560] hover:bg-[var(--color-mist)]">{l.label}</a>
+            <a key={l.href} href={l.href} className="rounded-md px-3 py-2 text-[14.5px] font-[500] hover:bg-white/10">{l.label}</a>
           ))}
         </nav>
         <div className="flex items-center gap-3">
