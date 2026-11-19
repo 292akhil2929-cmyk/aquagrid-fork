@@ -105,7 +105,7 @@ export function ExplodedView() {
         </div>
 
         <div
-          className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[94%] bg-[var(--color-navy)] [clip-path:polygon(0_0,88%_0,100%_50%,88%_100%,0_100%)] md:w-[min(62vw,760px)]"
+          className="pointer-events-none absolute bottom-[4.75rem] left-0 z-[1] h-[min(56svh,420px)] w-[90vw] bg-[var(--color-navy)] [clip-path:polygon(0_0,94%_0,100%_100%,0_100%)] md:w-[min(45vw,560px)]"
           aria-hidden="true"
         />
 
@@ -114,18 +114,17 @@ export function ExplodedView() {
         <div className="pointer-events-none absolute inset-x-0 bottom-36 z-10 px-5 sm:bottom-28 sm:px-10">
           <AnimatePresence mode="wait">
             {intro ? (
-              <motion.div key="intro" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: reduced ? 0 : 0.5 }} className="max-w-[46rem]">
-                <h1 id={intro ? "hero-title" : undefined} className="type-display text-[var(--color-white)]">The city beneath the city.</h1>
-                <p className="mt-5 max-w-[34rem] text-[1.125rem] leading-relaxed text-[var(--color-white)]/85">
-                  A coastal city runs on water it cannot see: seawater drawn offshore, desalinated, stored and pumped under every street.
-                  {reduced ? " Use “Separate layers” to take it apart." : " Scroll to take it apart, layer by layer."}
+              <motion.div key="intro" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: reduced ? 0 : 0.5 }} className="max-w-[min(26rem,58vw)]">
+                <h1 id={intro ? "hero-title" : undefined} className="type-display max-w-[10ch] text-[clamp(2.25rem,5.4vw,5.25rem)] text-[var(--color-white)]">The city beneath the city.</h1>
+                <p className="mt-4 max-w-[25rem] text-[1rem] leading-relaxed text-[var(--color-white)]/85">
+                  From Gulf intake to city streets, trace the five systems that keep water moving.
                 </p>
               </motion.div>
             ) : narrLayer ? (
-              <motion.div key={narrLayer.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.35 }} className="max-w-[30rem]">
+              <motion.div key={narrLayer.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.35 }} className="max-w-[min(24rem,58vw)]">
                 <p className="font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--color-yellow)]">Layer {narrLayer.id} / 5</p>
                 <h2 className="type-h2 mt-1 text-[var(--color-white)]">{narrLayer.name}</h2>
-                <p className="mt-3 text-[1.0625rem] leading-relaxed text-[var(--color-white)]/85">{narrLayer.role}</p>
+                <p className="mt-3 text-[1rem] leading-relaxed text-[var(--color-white)]/85">{narrLayer.role}</p>
               </motion.div>
             ) : null}
           </AnimatePresence>

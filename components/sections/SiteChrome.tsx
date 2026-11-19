@@ -17,9 +17,9 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
 }
 
 const LINKS = [
-  { href: "/#system", label: "System" },
+  { href: "/#system", label: "The system" },
   { href: "/#incident", label: "Incident" },
-  { href: "/#desalination", label: "Plant" },
+  { href: "/#desalination", label: "Desalination" },
   { href: "/#storage", label: "Storage" },
 ];
 
@@ -31,9 +31,8 @@ export function SiteHeader() {
       <div className="mx-auto grid h-full max-w-[1400px] grid-cols-[1fr_auto] items-center gap-4 px-5 sm:grid-cols-[auto_1fr_auto] sm:px-10">
         <Link href="/" aria-label="AquaGrid home"><Logo tone="dark" /></Link>
         <nav aria-label="Main" className="hidden h-full items-center justify-center lg:flex">
-          {LINKS.map((l, i) => (
-            <a key={l.href} href={l.href} className="group relative flex h-full items-center gap-2 border-r border-[var(--color-navy)]/15 px-3 text-[10px] font-[640] uppercase tracking-[0.13em] first:border-l">
-              <span className="font-mono text-[9px] text-[var(--color-navy)]/60">0{i + 1}</span>
+          {LINKS.map((l) => (
+            <a key={l.href} href={l.href} className="group relative flex h-full items-center border-r border-[var(--color-navy)]/15 px-4 text-[10px] font-[640] uppercase tracking-[0.13em] first:border-l">
               <span>{l.label}</span>
               <span className="absolute inset-x-3 bottom-0 h-[3px] origin-left scale-x-0 bg-[var(--color-yellow)] transition-transform duration-200 group-hover:scale-x-100" aria-hidden="true" />
             </a>
@@ -46,7 +45,7 @@ export function SiteHeader() {
           </Link>
         </div>
       </div>
-      <span className="absolute bottom-0 left-0 h-[3px] w-[15%] bg-[var(--color-yellow)]" aria-hidden="true" />
+      <span className="absolute bottom-0 left-0 h-[3px] w-[22%] bg-[var(--color-yellow)]" aria-hidden="true" />
     </header>
   );
 }
