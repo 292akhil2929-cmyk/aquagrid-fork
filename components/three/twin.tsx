@@ -33,7 +33,7 @@ export const COLORS = {
   navy: "#111b3a",
   navy2: "#1b2c54",
   navy3: "#293f71",
-  blue: "#6fa8e8",
+  blue: "#6fa8ea",
   blueDeep: "#2e72b8",
   yellow: "#f2ea1e",
   white: "#f4f7fb",

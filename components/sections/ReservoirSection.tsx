@@ -116,7 +116,7 @@ export function ReservoirSection() {
                   {playing ? "Pause" : hour >= 10 ? "Replay" : "Play the evening"}
                 </button>
                 <label htmlFor="hour" className="sr-only">Hour</label>
-                <input id="hour" type="range" min={0} max={10} value={hour} onChange={(e) => { setPlaying(false); setHour(Number(e.target.value)); }} className="w-full accent-[#6fa8e8]" />
+                <input id="hour" type="range" min={0} max={10} value={hour} onChange={(e) => { setPlaying(false); setHour(Number(e.target.value)); }} className="w-full accent-[#6fa8ea]" />
                 <span className="type-figure w-14 text-right text-[1.1rem]">{prop.hours[hour]}</span>
               </div>
             </div>

@@ -1,19 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useScenario } from "@/components/ScenarioController";
 
-export function Logo() {
+export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
-    <span className="flex items-center gap-2.5">
-      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="7" fill="#6fa8e8" />
-        <path d="M16 5c3.6 4.6 6 8 6 11a6 6 0 0 1-12 0c0-3 2.4-6.4 6-11Z" fill="#111b3a" />
-        <path d="M7 24h18M9 27h14" stroke="#f2ea1e" strokeWidth="1.8" strokeLinecap="round" />
-      </svg>
-      <span className="text-[1.15rem] font-[760] tracking-[-0.01em]" style={{ fontStretch: "118%" }}>AquaGrid</span>
-    </span>
+    <Image
+      src={tone === "dark" ? "/brand/aquagrid-dark.png" : "/brand/aquagrid-light.png"}
+      alt="AquaGrid"
+      width={1329}
+      height={338}
+      className="h-8 w-[126px] sm:h-9 sm:w-[142px]"
+    />
   );
 }
 
@@ -25,24 +24,19 @@ const LINKS = [
 ];
 
 export function SiteHeader() {
-  const { state, offline } = useScenario();
   const path = usePathname();
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-white/10 bg-[rgba(17,27,58,0.94)] text-white backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-black/10 bg-[var(--color-blue)] text-[var(--color-navy)]">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:rounded focus:bg-[var(--color-yellow)] focus:px-3 focus:py-2">Skip to content</a>
       <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-4 px-5 sm:px-10">
-        <Link href="/" aria-label="AquaGrid home"><Logo /></Link>
+        <Link href="/" aria-label="AquaGrid home"><Logo tone="dark" /></Link>
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="rounded-md px-3 py-2 text-[14.5px] font-[500] hover:bg-white/10">{l.label}</a>
+            <a key={l.href} href={l.href} className="rounded-md px-3 py-2 text-[14.5px] font-[560] hover:bg-black/5">{l.label}</a>
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <span className="hidden items-center gap-2 text-[13px] sm:flex" role="status">
-            <span className={`h-2.5 w-2.5 rounded-full ${offline ? "bg-[var(--color-red)]" : state ? "bg-[var(--color-green)]" : "bg-[var(--color-line)]"}`} aria-hidden="true" />
-            {offline ? "Engine offline" : state ? `Engine live, ${state.scene.clock}` : "Connecting"}
-          </span>
-          <Link href={path === "/control" ? "/" : "/control"} className="btn btn-primary btn-sm">
+          <Link href={path === "/control" ? "/" : "/control"} className="btn btn-sm border-[var(--color-navy)] bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-2)]">
             {path === "/control" ? "Back to the story" : "Control room"}
           </Link>
         </div>

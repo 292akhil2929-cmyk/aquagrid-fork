@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
 /*
-  AquaGrid palette: Gulf ice, deep-water navy, warm paper, one lemon signal.
-  Water and selected controls use glacier blue; lemon is reserved for primary
-  actions, important markers, and closed-valve state. Incident colors stay semantic.
+  AquaGrid palette: glacier blue leads, deep-water navy anchors, warm paper
+  supports reading, and lemon appears only as a small signal. Incident colors stay semantic.
 */
 @theme {
   --color-ink: #20283a;
   --color-navy: #111b3a;
   --color-navy-2: #1b2c54;
   --color-navy-3: #293f71;
-  --color-blue: #6fa8e8;
+  --color-blue: #6fa8ea;
   --color-blue-deep: #2e72b8;
   --color-blue-pale: #dcebfa;
   --color-yellow: #f2ea1e;
@@ -116,12 +115,12 @@ body {
   cursor: pointer; white-space: nowrap;
 }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
-.btn-primary { background: var(--color-yellow); color: #20283a; border-color: #20283a; }
-.btn-primary:not(:disabled):hover { background: var(--color-navy); color: var(--color-yellow); border-color: var(--color-navy); }
+.btn-primary { background: var(--color-blue); color: var(--color-navy); border-color: var(--color-blue); }
+.btn-primary:not(:disabled):hover { background: var(--color-navy); color: var(--color-blue); border-color: var(--color-navy); }
 .btn-blue { background: var(--color-blue); color: #20283a; border-color: var(--color-blue); }
 .btn-blue:not(:disabled):hover { background: var(--color-navy); color: var(--color-blue); border-color: var(--color-navy); }
 .btn-ghost { background: transparent; }
-.btn-ghost:not(:disabled):hover { background: rgba(111, 168, 232, 0.16); }
+.btn-ghost:not(:disabled):hover { background: rgba(111, 168, 234, 0.16); }
 .btn-sm { min-height: 2.25rem; padding: 0 0.85rem; font-size: 0.8125rem; }
 
 .tool {

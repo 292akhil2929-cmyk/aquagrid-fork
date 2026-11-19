@@ -36,7 +36,7 @@ function colour(status?: string) {
   if (status === "warning" || status === "watch" || status === "fault" || status === "flatline") return "#e8892b";
   if (status === "quarantined" || status === "isolated") return "#7d8699";
   if (status === "closed") return "#f2ea1e";
-  return "#6fa8e8";
+  return "#6fa8ea";
 }
 
 export function NetworkTwin() {
@@ -131,7 +131,7 @@ export function NetworkTwin() {
               return (
                 <g key={`${e.from}${e.to}`} opacity={dim ? 0.12 : 1}>
                   <path d={d} fill="none" stroke={bad ? "#d33a3f" : "#3c5aa8"} strokeWidth="3" />
-                  {flow && m3h > 0 && <path className="flow" d={d} fill="none" stroke={bad ? "#ff9b9b" : "#6fa8e8"} strokeWidth="3" style={{ animationDuration: `${Math.max(0.6, 900 / m3h).toFixed(2)}s` }} />}
+                  {flow && m3h > 0 && <path className="flow" d={d} fill="none" stroke={bad ? "#ff9b9b" : "#6fa8ea"} strokeWidth="3" style={{ animationDuration: `${Math.max(0.6, 900 / m3h).toFixed(2)}s` }} />}
                 </g>
               );
             })}

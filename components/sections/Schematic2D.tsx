@@ -49,7 +49,7 @@ export function Schematic2D({ state, selected, onSelect, focusLayer, dark = true
         const dim = focusLayer != null && focusLayer !== l.id;
         return (
           <g key={l.id} opacity={dim ? 0.35 : 1}>
-            <rect x="8" y={y + 4} width={W - 16} height={BAND - 8} rx="6" fill={dark ? "rgba(111,168,232,0.08)" : "#eaf1f7"} stroke={dark ? "rgba(111,168,232,0.35)" : "#cbd5e1"} />
+            <rect x="8" y={y + 4} width={W - 16} height={BAND - 8} rx="6" fill={dark ? "rgba(111,168,234,0.08)" : "#eaf1f7"} stroke={dark ? "rgba(111,168,234,0.35)" : "#cbd5e1"} />
             <text x="22" y={y + 34} fill={ink} fontSize="15" fontWeight="680">{l.id}. {l.short}</text>
             <text x="22" y={y + 54} fill={sub} fontSize="12">{l.name}</text>
           </g>
@@ -58,7 +58,7 @@ export function Schematic2D({ state, selected, onSelect, focusLayer, dark = true
       {edges.map(([a, b]) => {
         const p = centre(a), q = centre(b);
         const bad = state?.leak.active && b === "BR-4H";
-        return <path key={`${a}${b}`} d={`M${p.x} ${p.y}V${(p.y + q.y) / 2}H${q.x}V${q.y}`} fill="none" stroke={bad ? "#d33a3f" : dark ? "rgba(111,168,232,0.6)" : "#6fa8e8"} strokeWidth="2" />;
+        return <path key={`${a}${b}`} d={`M${p.x} ${p.y}V${(p.y + q.y) / 2}H${q.x}V${q.y}`} fill="none" stroke={bad ? "#d33a3f" : dark ? "rgba(111,168,234,0.6)" : "#6fa8ea"} strokeWidth="2" />;
       })}
       {Object.keys(ASSET_POS).map((id) => {
         const { x, y } = centre(id);

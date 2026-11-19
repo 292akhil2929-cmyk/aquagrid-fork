@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "An interactive digital twin of a Gulf coastal water system: intake, desalination, storage and distribution, and what happens when four disruptions arrive at once.",
 };
 
-export const viewport: Viewport = { themeColor: "#111b3a", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#6fa8ea", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
