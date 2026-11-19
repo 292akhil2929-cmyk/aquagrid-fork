@@ -25,10 +25,10 @@ export function TwinCanvas({ twin, children, active, enableZoom = false, minDist
       aria-label={label}
       frameloop={active ? "always" : "never"}
       dpr={[1, 1.75]}
-      gl={{ antialias: true, powerPreference: "high-performance", toneMapping: THREE.ACESFilmicToneMapping }}
+      gl={{ alpha: true, antialias: true, powerPreference: "high-performance", toneMapping: THREE.ACESFilmicToneMapping }}
       camera={{ position: initial?.pos ?? [68, 46, 92], fov: initial?.fov ?? 32, near: 0.5, far: 600 }}
       onPointerMissed={() => twin.select(null)}
-      style={{ background: COLORS.navy }}
+      style={{ background: "transparent" }}
     >
       <TwinContext.Provider value={twin}>
         <fog attach="fog" args={[COLORS.navy, 140, 320]} />

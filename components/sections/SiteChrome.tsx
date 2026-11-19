@@ -17,9 +17,9 @@ export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
 }
 
 const LINKS = [
-  { href: "/#system", label: "The system" },
-  { href: "/#incident", label: "The incident" },
-  { href: "/#desalination", label: "Desalination" },
+  { href: "/#system", label: "System" },
+  { href: "/#incident", label: "Incident" },
+  { href: "/#desalination", label: "Plant" },
   { href: "/#storage", label: "Storage" },
 ];
 
@@ -28,19 +28,25 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-black/10 bg-[var(--color-blue)] text-[var(--color-navy)]">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:rounded focus:bg-[var(--color-yellow)] focus:px-3 focus:py-2">Skip to content</a>
-      <div className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-4 px-5 sm:px-10">
+      <div className="mx-auto grid h-full max-w-[1400px] grid-cols-[1fr_auto] items-center gap-4 px-5 sm:grid-cols-[auto_1fr_auto] sm:px-10">
         <Link href="/" aria-label="AquaGrid home"><Logo tone="dark" /></Link>
-        <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
-          {LINKS.map((l) => (
-            <a key={l.href} href={l.href} className="rounded-md px-3 py-2 text-[14.5px] font-[560] hover:bg-black/5">{l.label}</a>
+        <nav aria-label="Main" className="hidden h-full items-center justify-center lg:flex">
+          {LINKS.map((l, i) => (
+            <a key={l.href} href={l.href} className="group relative flex h-full items-center gap-2 border-r border-[var(--color-navy)]/15 px-3 text-[10px] font-[640] uppercase tracking-[0.13em] first:border-l">
+              <span className="font-mono text-[9px] text-[var(--color-navy)]/60">0{i + 1}</span>
+              <span>{l.label}</span>
+              <span className="absolute inset-x-3 bottom-0 h-[3px] origin-left scale-x-0 bg-[var(--color-yellow)] transition-transform duration-200 group-hover:scale-x-100" aria-hidden="true" />
+            </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <Link href={path === "/control" ? "/" : "/control"} className="btn btn-sm border-[var(--color-navy)] bg-[var(--color-navy)] text-white hover:bg-[var(--color-navy-2)]">
-            {path === "/control" ? "Back to the story" : "Control room"}
+        <div className="flex justify-end">
+          <Link href={path === "/control" ? "/" : "/control"} className="flex items-center gap-2 border-l border-[var(--color-navy)]/20 pl-3 font-mono text-[10px] font-[680] uppercase tracking-[0.12em] sm:gap-3 sm:pl-5">
+            <span className="whitespace-nowrap">{path === "/control" ? "Story" : "Control room"}</span>
+            <span className="grid h-6 w-6 place-items-center bg-[var(--color-yellow)] text-[14px] leading-none text-[var(--color-navy)] sm:h-7 sm:w-7" aria-hidden="true">↗</span>
           </Link>
         </div>
       </div>
+      <span className="absolute bottom-0 left-0 h-[3px] w-[15%] bg-[var(--color-yellow)]" aria-hidden="true" />
     </header>
   );
 }

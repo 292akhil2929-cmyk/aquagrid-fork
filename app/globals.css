@@ -13,9 +13,9 @@
   --color-blue-deep: #2e72b8;
   --color-blue-pale: #dcebfa;
   --color-yellow: #f2ea1e;
-  --color-paper: #f5f3ed;
-  --color-mist: #eaf1f7;
-  --color-line: #cbd5e1;
+  --color-paper: #e5f0fc;
+  --color-mist: #d7e8f8;
+  --color-line: #b8cadc;
   --color-muted: #586275;
   --color-black: #20283a;
   --color-white: #f5f3ed;
@@ -99,7 +99,7 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-blue-deep);
+  outline: 3px solid var(--color-navy);
   outline-offset: 2px;
   border-radius: 2px;
 }

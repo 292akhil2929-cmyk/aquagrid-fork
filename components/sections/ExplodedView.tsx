@@ -84,7 +84,7 @@ export function ExplodedView() {
 
   return (
     <section id="system" ref={sectionRef} aria-labelledby="hero-title" className={reduced ? "relative" : "relative h-[340vh]"}>
-      <div className="on-navy sticky top-0 h-[100svh] overflow-hidden bg-[var(--color-navy)] text-white">
+      <div className="sticky top-0 h-[100svh] overflow-hidden bg-[var(--color-blue)] text-[var(--color-navy)]">
         <div className="absolute inset-0">
           {use3d ? (
             webgl === null ? null : (
@@ -104,23 +104,28 @@ export function ExplodedView() {
           )}
         </div>
 
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-[94%] bg-[var(--color-navy)] [clip-path:polygon(0_0,88%_0,100%_50%,88%_100%,0_100%)] md:w-[min(62vw,760px)]"
+          aria-hidden="true"
+        />
+
         {!intro && <h1 id="hero-title" className="sr-only">The city beneath the city</h1>}
         {/* Narrative overlay */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-36 px-5 sm:bottom-28 sm:px-10">
+        <div className="pointer-events-none absolute inset-x-0 bottom-36 z-10 px-5 sm:bottom-28 sm:px-10">
           <AnimatePresence mode="wait">
             {intro ? (
               <motion.div key="intro" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: reduced ? 0 : 0.5 }} className="max-w-[46rem]">
-                <h1 id={intro ? "hero-title" : undefined} className="type-display">The city beneath the city.</h1>
-                <p className="mt-5 max-w-[34rem] text-[1.125rem] leading-relaxed text-white/85">
+                <h1 id={intro ? "hero-title" : undefined} className="type-display text-[var(--color-white)]">The city beneath the city.</h1>
+                <p className="mt-5 max-w-[34rem] text-[1.125rem] leading-relaxed text-[var(--color-white)]/85">
                   A coastal city runs on water it cannot see: seawater drawn offshore, desalinated, stored and pumped under every street.
                   {reduced ? " Use “Separate layers” to take it apart." : " Scroll to take it apart, layer by layer."}
                 </p>
               </motion.div>
             ) : narrLayer ? (
               <motion.div key={narrLayer.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: reduced ? 0 : 0.35 }} className="max-w-[30rem]">
-                <p className="text-[15px] text-[var(--color-blue)]">Layer {narrLayer.id} of 5</p>
-                <h2 className="type-h2 mt-1">{narrLayer.name}</h2>
-                <p className="mt-3 text-[1.0625rem] leading-relaxed text-white/85">{narrLayer.role}</p>
+                <p className="font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--color-yellow)]">Layer {narrLayer.id} / 5</p>
+                <h2 className="type-h2 mt-1 text-[var(--color-white)]">{narrLayer.name}</h2>
+                <p className="mt-3 text-[1.0625rem] leading-relaxed text-[var(--color-white)]/85">{narrLayer.role}</p>
               </motion.div>
             ) : null}
           </AnimatePresence>
@@ -141,7 +146,7 @@ export function ExplodedView() {
         </AnimatePresence>
 
         {/* Toolbar */}
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 bg-[rgba(17,27,58,0.82)] px-4 py-3 backdrop-blur sm:px-8">
+        <div className="on-navy absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center justify-between gap-3 border-t-[3px] border-[var(--color-yellow)] bg-[var(--color-navy)] px-4 py-3 text-[var(--color-white)] sm:px-8">
           <div className="flex flex-wrap items-center gap-2">
             <button type="button" className="btn btn-primary btn-sm" onClick={toggleExplode} disabled={!use3d}>
               {exploded ? "Collapse layers" : "Separate layers"}
